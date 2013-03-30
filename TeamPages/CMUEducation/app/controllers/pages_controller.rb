@@ -37,11 +37,6 @@ class PagesController < ApplicationController
       redirect_to(:controller => :pages, :action => :new, :url => params[:id]) and return
     end
 
-    unless @page.viewable?(current_user)
-      flash[:error] = "You don't have permission to do this action."
-      redirect_to(root_url) and return
-    end
-
     @tab = params[:tab]
 
     respond_to do |format|
@@ -61,7 +56,7 @@ class PagesController < ApplicationController
     @courses = Course.unique_course_names
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # new.h tml.erb
       format.xml { render :xml => @page }
     end
   end
