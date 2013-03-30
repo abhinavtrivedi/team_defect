@@ -137,8 +137,6 @@ class PagesController < ApplicationController
     #@page.course = course
 
     @page.updated_by_user_id = current_user.id if current_user
-    @page.current_edit_by = nil
-    @page.current_edit_started_at = nil
 
     respond_to do |format|
       if @page.update_attributes(params[:page])
