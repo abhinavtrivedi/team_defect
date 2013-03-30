@@ -56,7 +56,7 @@ class PagesController < ApplicationController
     @courses = Course.unique_course_names
 
     respond_to do |format|
-      format.html # new.h tml.erb
+      format.html # new.html.erb
       format.xml { render :xml => @page }
     end
   end
@@ -146,7 +146,7 @@ class PagesController < ApplicationController
         format.html { redirect_to(@page) }
         format.xml { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { redirect_to(@page) }
         format.xml { render :xml => @page.errors, :status => :unprocessable_entity }
       end
     end
