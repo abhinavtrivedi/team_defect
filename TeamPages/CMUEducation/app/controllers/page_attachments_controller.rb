@@ -3,7 +3,7 @@ class PageAttachmentsController < ApplicationController
     @pa = PageAttachment.find(params[:id])
     @pa.user_id = current_user.id
 
-    if @pa.page.editable?(current_user)
+    if @pa.user_id == current_user.id
       respond_to do |format|
         if @pa.update_attributes(params[:page_attachment])
           format.html { redirect_to @pa.page }
