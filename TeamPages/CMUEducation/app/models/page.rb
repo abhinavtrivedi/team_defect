@@ -8,7 +8,9 @@ class Page < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :url
   validates_presence_of :updated_by_user_id
-  validates_format_of :url, :allow_blank => true, :message => "can not be a number", :with => /^.*\D+.*$/ #it can not be a number
+  validates_format_of :url, :allow_blank => true, :message => "can not be a number", :with => /^.*\D+.$/ #it can not be a number
+  validates :course_name, :length => { :maximum => 30 }
+  valiates_format_of :course_name, :message => "Invalid Course Name", :with => /^.*\D+$/
 
   belongs_to :updated_by, :class_name => 'User', :foreign_key => 'updated_by_user_id'
   belongs_to :current_edit_by, :class_name => 'User', :foreign_key => 'current_edit_by_user_id'
