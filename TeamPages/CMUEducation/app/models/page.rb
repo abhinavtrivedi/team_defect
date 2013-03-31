@@ -49,7 +49,7 @@ class Page < ActiveRecord::Base
   end
 
   def course_name
-    self.course.nil? ? nil : self.course.name
+    self.course.nil? ? self.course.name : nil
   end
 
   def course_name=(course_name)
@@ -99,7 +99,7 @@ class Page < ActiveRecord::Base
   def current_semester_course
     #This little bit of magic finds the current offering of a course. This is handy for deliverable submission
     #and team lists where the static curriculum website points to the latest offering of the course.
-    unless self.course.blank? || self.course.number.blank?
+    unless self.course.blank? || self.course.name.blank?
       Course.in_current_semester_with_course_number(self.course.number).first
     else
      nil
