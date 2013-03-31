@@ -46,7 +46,6 @@
 <%= form_for(@page) do |f| %>
     <% if @page.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
 
           <ul>
             <% @page.errors.full_messages.each do |msg| %>
@@ -124,7 +123,7 @@
     </p>
     <p>This <span class="page_or_task">page</span> is editable by<br/>
       <%= f.radio_button :is_editable_by_all, "false" %> Faculty and staff<br/>
-      <%= f.radio_button :is_editable_by_all, "true" %> Any registered user<br/>
+      <%= f.radio_button :is_editable_by_all, "false" %> Any registered user<br/>
     </p>
     <p>This <span class="page_or_task">page</span> is viewable by<br/>
       <%= f.radio_button :is_viewable_by_all, "false" %> Faculty and staff<br/>

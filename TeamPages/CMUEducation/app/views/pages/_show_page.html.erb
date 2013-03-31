@@ -115,7 +115,7 @@
           Remember  <%= link_to "'Tying the Bow'", page_path(:id => "tying_the_bow") %></p>
 
         <p>When you are confident that your work on this task is complete,
-          <%= link_to "submit your deliverable", new_deliverable_path(:task_number => @page.task_number, :course_id => @current_semester_course) %></p>
+          <%= link_to "submit your deliverable", deliverable_path %></p>
 
         <p><%= sanitize_trusted(@page.tab_three_contents) %></p>
       </div>

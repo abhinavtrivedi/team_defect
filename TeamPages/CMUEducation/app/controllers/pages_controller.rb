@@ -51,7 +51,7 @@ class PagesController < ApplicationController
     @page = Page.new
     @page.title = params[:url].split('_').collect { |w| w.capitalize + ' ' }.join().chomp(' ') if params[:url]
     @page.url = params[:url]
-    @page.course_id = params[:course_id].to_i
+    @page.course_id = params[:id]
 #    @courses = Course.all
     @courses = Course.unique_course_names
 
